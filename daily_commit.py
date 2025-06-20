@@ -4,7 +4,7 @@ import random
 import subprocess # subprocessモジュールをインポート
 
 def create_and_commit():
-    # 環境変数からユーザー名とメールアドレスを取得
+    # ユーザー名とメールアドレスを取得
     git_username = os.environ.get('GIT_USERNAME')
     git_useremail = os.environ.get('GIT_USEREMAIL')
 

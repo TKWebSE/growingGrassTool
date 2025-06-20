@@ -3,6 +3,10 @@
 name: Daily Automated Commit
 
 on:
+    # 毎日午前0時（UTC）に実行されます。
+    # 日本時間（JST）で午前9時に実行したい場合は、このまま '0 0 * * *' を使用します。
+    # 他の時間にしたい場合は、UTCとの時差を考慮して調整してください。
+    # 例：日本時間の午後5時（JST 17時）に実行したい場合、UTCは8時なので '0 8 * * *' となります。
   schedule:
     - cron: '0 0 * * *' 
   workflow_dispatch:
@@ -16,6 +20,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         fetch-depth: 0
+        # GitHubトークンを設定してください
         token: ${{ secrets.GH_TOKEN }} 
 
     - name: Set up Python
@@ -26,5 +31,6 @@ jobs:
     - name: Run daily commit script
       run: python daily_commit.py
       env:
+          # ここをあなたのGitHubユーザー名とメールアドレスに置き換えてください
         GIT_USERNAME: TKWebSE
         GIT_USEREMAIL: writetechcode@yahoo.co.jp
