@@ -28,4 +28,4 @@ jobs:
         # ここで環境変数を設定
         # あなたのGitHubユーザー名とメールアドレスに置き換えてください
         GIT_USERNAME: TKWebSE
-        GIT_USEREMAIL: writetechcode@yahoo.co.jp
+        GIT_USEREMAIL: writetechcode2@gmail.com
