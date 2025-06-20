@@ -1,0 +1,31 @@
+name: Daily Automated Commit
+
+on:
+  schedule:
+    # 毎日午前0時（UTC）に実行
+    - cron: '0 0 * * *' 
+  workflow_dispatch: # 手動実行を可能にする
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        persist-credentials: false
+        fetch-depth: 0
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+
+    - name: Run daily commit script
+      run: python daily_commit.py
+      env:
+        # ここで環境変数を設定
+        # あなたのGitHubユーザー名とメールアドレスに置き換えてください
+        GIT_USERNAME: TKWebSE
+        GIT_USEREMAIL: writetechcode@yahoo.co.jp
